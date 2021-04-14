@@ -1,0 +1,11 @@
+<form>
+    <label for="serverName">Server name:</label>
+    <input class="form-control" type="text" name="serverName" 
+        [(ngModel)]="serverName"/>
+    <button
+        class="btn btn-primary"
+        [disabled]="(serverName.length <= 0)"
+        (click)="onCreateServer()"
+    > Add Server</button>
+</form>
+<app-server *ngFor="let server of servers"></app-server>

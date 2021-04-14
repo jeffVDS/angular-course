@@ -1,0 +1,13 @@
+p {
+    color:black;
+}
+
+.offline {
+    background-color: red;
+    color: white;
+}
+
+.online {
+    background-color: green;
+    color: white;
+}

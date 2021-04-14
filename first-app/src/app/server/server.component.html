@@ -1,0 +1,8 @@
+<p [ngClass]="{online: activated, offline: !activated}" class="col-xs-9">
+    Server with ID {{id}} is {{!activated ? "offline" : "online"}}</p>
+<button class="btn col-xs-3" 
+    [ngClass]="{'btn-success': !activated, 
+                'btn-danger': activated}"
+    (click)="changeStatus()">
+    {{!activated ? "Activate" : "Deactivate"}} Server
+</button>
