@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingEditComponent implements OnInit {
 
+  measurementOptions = ["kg","g","l","ml","oz","un","cm"]
+
   constructor() { }
 
   ngOnInit(): void {

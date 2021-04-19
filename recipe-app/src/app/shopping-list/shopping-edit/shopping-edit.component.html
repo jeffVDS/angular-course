@@ -1,1 +1,31 @@
-<p>shopping-edit works!</p>
+<div class="row">
+    <div class="col-xs-12">
+        <form>
+            <div class="row">
+                <div class="col-sm-4 form-group">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" class="form-control" type="text"/>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <label for="amount">Amount</label>
+                    <input id="amount" name="amount" class="form-control" type="number"/>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <label for="measurement">Measurement</label>
+                    <select class="form-control" id="measurement" name="measurement">
+                        <option value="">Select</option>
+                        <option *ngFor="let measurement of measurementOptions"
+                         [value]="measurement">{{measurement}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button class="btn btn-success" type="submit">Add</button>
+                    <button class="btn btn-danger" type="button">Delete</button>
+                    <button class="btn btn-primary" type="button">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
