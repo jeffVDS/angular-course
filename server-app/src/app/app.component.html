@@ -1,9 +1,28 @@
 <div class="container">
-  <app-cockpit></app-cockpit>
-  <hr>
+  <app-cockpit (serverCreated)="onServerAdded($event)"
+    (blueprintCreated)="onBlueprintAdded($event)"
+  ></app-cockpit>
+  <hr />
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element *ngFor="let serverElement of serverElements"></app-server-element>
+      <app-server-element 
+      *ngFor="let serverElement of serverElements"
+      [srvElement]="serverElement">
+        <p>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
+            serverElement.content
+          }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+        </p>
+    </app-server-element>
     </div>
   </div>
 </div>
+<!-- <app-game-control (rollEvent)="onRollEvent($event)">
+<div class="row" *ngFor="let roll of rolls">
+  <app-odd *ngIf="(roll % 2 != 0);else evenRoll" [number]="roll"></app-odd>
+  <ng-template #evenRoll>
+    <app-even [number]="roll"></app-even>
+  </ng-template>
+</div>
+</app-game-control> -->

@@ -1,28 +1,36 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  serverElements = [];
-  newServerName = '';
-  newServerContent = '';
+  serverElements = [
+    { type: "server", name: "TestServer", content: "Just a Test" },
+    { type: "blueprint", name: "TestBlueprint", content: "Just a Test" },
+  ];
 
-  onAddServer() {
+  rolls: number[] = [];
+
+  onServerAdded(serverData:{serverName:string,serverContent:string}) {
     this.serverElements.push({
       type: 'server',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: serverData.serverName,
+      content: serverData.serverContent
     });
   }
 
-  onAddBlueprint() {
+  onBlueprintAdded(blueprintData:{serverName:string,serverContent:string}) {
     this.serverElements.push({
       type: 'blueprint',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: blueprintData.serverName,
+      content: blueprintData.serverContent
     });
   }
+
+  onRollEvent(roll: {inc: number}): void {
+    this.rolls.push(roll.inc);
+  }
+
 }
