@@ -30,6 +30,9 @@
             "scripts": []
           },
           "configurations": {
+            "es5":{
+              "tsConfig": "./tsconfig-es5.app.json"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -67,6 +70,9 @@
           "configurations": {
             "production": {
               "browserTarget": "recipe-app:build:production"
+            }
+            ,"es5": {
+              "browserTarget": "recipe-app:build:es5"
             }
           }
         },
