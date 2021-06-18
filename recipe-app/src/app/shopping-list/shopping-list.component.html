@@ -8,7 +8,7 @@
         style="cursor: pointer"
         *ngFor="let ingredient of ingredients"
       >
-        {{ ingredient.name }} ({{ ingredient.amount }})
+        {{ ingredient.name }} <span *ngIf="ingredient.amount != '' && ingredient.amount != null ">({{ingredient.amount}} {{ingredient.measurement}})</span>
       </a>
     </ul>
   </div>

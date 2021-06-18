@@ -19,6 +19,9 @@ import { ShoppingListService } from '../shopping-list.service';
 export class ShoppingEditComponent implements OnInit {
   @ViewChild('nameInput', { static: false }) nameInputRef: ElementRef;
   @ViewChild('amountInput', { static: false }) amountInputRef: ElementRef;
+  @ViewChild('measurementInput', { static: false }) measurementInputRef: ElementRef;
+
+  public measurementList = ['g','kg','oz','un','cup','spoon'];
 
   constructor(private shoppingListService: ShoppingListService ) { }
 
@@ -28,7 +31,9 @@ export class ShoppingEditComponent implements OnInit {
   onAddItem() {
     const ingName = this.nameInputRef.nativeElement.value;
     const ingAmount = this.amountInputRef.nativeElement.value;
-    const newIngredient = new Ingredient(ingName, ingAmount);
+    const ingMeasurement = this.measurementInputRef.nativeElement.value;
+    console.log(ingAmount);
+    const newIngredient = new Ingredient(ingName, ingAmount, ingMeasurement);
     this.shoppingListService.addIngredient(newIngredient);
   }
 
